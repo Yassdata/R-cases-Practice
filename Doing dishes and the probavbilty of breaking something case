@@ -1,0 +1,43 @@
+# Doing dishes and the probavbilty of breaking something case 
+
+# probabilities of doing dishes
+P_Anna <- 0.30
+P_Bjørn <- 0.15
+P_caroline <- 0.25
+P_Dorte <- 0.30
+
+#probnilities of the of breaking dishes 
+P_Anna_breaking_dishes <- 0.05
+P_Bjørn_breaking_dishes <- 0.10
+P_caroline_breaking_dishes <- 0.08
+P_Dorte_breaking_dishes <- 0.12
+
+#Total probabilty of breaking dishes 
+
+P_breaking <- (P_Anna_breaking_dishes * P_Anna) + (P_Bjørn_breaking_dishes * P_Bjørn) + 
+  (P_caroline_breaking_dishes * P_caroline) + (P_Dorte_breaking_dishes * P_Dorte)
+#probabilty of something breaking given Anna doing dishes (P) (B*A)*B
+P_breaking_given_Anna <- (P_breaking * P_Anna) / P_breaking
+
+# probabilty of Bjørn doing dishes AND something breaking 
+P_Bjørn_doing_dishes_AND_breaking <- (P_Bjørn * P_Bjørn_breaking_dishes) / P_Bjørn_breaking_dishes
+
+p <- 1/5
+
+P_first_question_correct_is_4th <- dgeom(3,0.2)
+
+P_4_correct_answers <- dbinom(4, 8, p)
+
+# 4 is number of success, 8 is the number of trial, p is the probability of success on each trial.
+#----------------------
+P_exactly_2_correct <- dbinom(2, 8, p)
+P_exactly_3_correct <- dbinom(3, 8, p)
+Total_P_exactly_2_or_3_correct <- P_exactly_2_correct + P_exactly_3_correct
+
+#probability of none is correct 
+P_None <- dbinom(0, 8, 0.2)
+P_at_least_1_correct <- 1-(P_None)
+# P of all questions right
+p_right <- 1/5
+n <- 8
+p_all_right <- p_right**8
